@@ -5,5 +5,11 @@
     - name: Curl AWS
       shell: 
         cmd: curl http://169.254.169.254/latest/meta-data/public-ipv4
+
+      #  We can run the playbook with -v flag to get the verbose logs.
+      #  e.g. =     ansible-playbook -i aws.ini playbooks/cmd.yaml -v
+      #  max -vvvv
+      #  to get the stdout_lines section output, we use - 
+
       register: curl
     - debug: var=curl.stdout_lines

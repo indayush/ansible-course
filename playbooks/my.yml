@@ -1,0 +1,49 @@
+- hosts: web
+  remote_user: root
+  become: true
+  tasks:
+    - name: Update All Packages
+      yum:
+        name: "*"
+        state: latest
+
+    - name: Install apache(httpd)
+      yum:
+        name: httpd
+        state: installed
+
+    - name: Create HTML Page
+      shell: echo "Hello World from the Ansible Challenge" > /var/www/html/index.html
+      args:
+        executable: /bin/bash
+      notify:
+        - Reload Apache
+
+    - name: Reload Apache
+      service:
+        name: httpd
+        state: reloaded
+
+    # Get the terminal output in variable curl_output
+    # To print the result 
+    # - debug: var=<VARIABLE_NAME>.stdout
+    - name: Get public IP of server
+      shell:
+        cmd: curl http://169.254.169.254/latest/meta-data/public-ipv4
+      register: curl_output
+    - debug: var=curl_output.stdout
+
+    # Get the terminal output in variable curl_output
+    # To print the result 
+    # - debug: var=<VARIABLE_NAME>.stdout
+    - name: get HTML page text
+      shell:
+        cmd: cat /home/ec2-user/demo.txt
+      register: demo_output
+    - debug: var=demo_output.stdout
+
+  handlers:
+    - name: Reload Apache
+      service:
+        name: httpd
+        state: reloaded
