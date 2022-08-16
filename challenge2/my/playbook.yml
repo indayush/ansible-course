@@ -1,0 +1,43 @@
+- hosts: web
+  remote_user: root
+  become: true
+  tasks:
+    # Update all packages
+    # - name: Update All Packages
+    #   yum:
+    #     name: '*'
+    #     state: latest
+
+
+    #  Install Apache
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: installed
+
+
+    #  Edit in the file to make the machine ip redirect to HTML page
+    - name: Create HTML Redirect file
+      shell: echo "Hello From The Ansible Challenge" > /var/www/html/index.html
+      args: 
+        executable: /bin/bash
+
+      # Trigger the Reload Apache task 
+      notify: 
+        - Reload Apache
+
+
+    #  Uninstall Apache
+    # - name: Uninstall Apache
+    #   yum:
+    #     name: httpd
+    #     state: removed
+
+  # Handlers are triggered at the last. After all tasks are done 
+  handlers:
+    - name: Reload Apache
+      service:
+        name: httpd
+        state: reloaded
+    
+    
