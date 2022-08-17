@@ -1,17 +1,25 @@
 - hosts: web
   remote_user: root
   become: yes
+
+  # Available Variables List
   vars:
     packages:
       - httpd 
       - nano 
       - mysql
+
+
   tasks:
+  # Looping via a for loop
   - name: Install Software
     yum:
       name: "{{ item }}"
       state: installed
     loop: "{{ packages }}"
+
+
+  # Looping sequentially via a list
   - name: Remove Software
     yum: 
       name: 

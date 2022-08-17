@@ -1,10 +1,16 @@
 - hosts: localhost
+  
+  # Importing the Variables file
   vars_files:
     - vars.yaml
+
   tasks:
   - name: Display 1st Value
     debug:
+      # getting the variables based on the key for 1st Value
       msg: "{{ http_port }}"
+
   - name: Display 2nd Value
     debug:
+      # getting the variables based on the key for 2nd Value
       msg: "{{ server_name }}"

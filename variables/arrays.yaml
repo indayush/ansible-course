@@ -1,9 +1,11 @@
 - hosts: localhost
+
   vars:
     courses:
       - ansible
       - terraform
       - docker 
+      
   tasks:
   - name: Display Value
     debug:

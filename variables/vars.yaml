@@ -1,2 +1,7 @@
+# A file to hold all the variables. We can get the values from here.
+# Key:Value format
+
+# Example is in the var_file_demo.yaml
+
 http_port: 80
 server_name: prod_dc01

@@ -1,7 +1,9 @@
 - hosts: localhost
+
   vars:
     basic_var: My First Variable 
+
   tasks:
   - name: Display Value
     debug:
-      msg: "{{ basic_var }}"
+      msg: "{{basic_var}}"
