@@ -1,4 +1,20 @@
 - hosts: localhost
+  
+  
+  # Trigger the playbook with variables from cli arguments
+  # use the -e flag (extra flag) to assign the variable
+  # It can also overwrite the existing value of the variable
+  # e.g. -
+  #         ansible-playbook cli.yaml -e "basic_var=CLI"
+  # 
+  # ok: [localhost] => {
+  # "msg": "CLI"
+  # }
+  # 
+
+  vars:
+    basic_var: My First Variable 
+
   tasks:
   - name: Display Value
     debug:
