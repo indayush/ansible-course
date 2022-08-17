@@ -1,0 +1,33 @@
+{
+ "collection_info": {
+  "namespace": "dealtalfa",
+  "name": "kubernetes",
+  "version": "1.0.4",
+  "authors": [
+   "Deepak Yadav (alfo7742@gmail.com)"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "kubernetes",
+   "cloud",
+   "cluster",
+   "multinode"
+  ],
+  "description": "Role for setting up k8 cluster",
+  "license": [],
+  "license_file": "LICENSE",
+  "dependencies": {},
+  "repository": "https://github.com/DEALTALFA/collection.kube8s",
+  "documentation": "https://github.com/DEALTALFA/collection.kube8s",
+  "homepage": "https://github.com/DEALTALFA/collection.kube8s",
+  "issues": "https://github.com/DEALTALFA/collection.kube8s/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "40bf692b77efaba0a082b771537676389ac8a62eacb8452c33aba2978408bd4c",
+  "format": 1
+ },
+ "format": 1
+}

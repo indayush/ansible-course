@@ -1,0 +1,19 @@
+#  Used to download the collections from Ansible Galaxy/Git Repos
+
+#  Syntax is
+#              - For collection from Ansible Galaxy -
+#                           - collections:
+#                             - name: <COLLECTION_NAME>
+#              - For collection from any git repo -
+#                             - src: <LINK_OF_REPO>
+#                                 - name: <NAME_BY_WHICH_COLLECTION_WILL_BE _CREATED>
+
+# Command to download the collections -
+#  (Syntax) =  ansible-galaxy collection install -p <DOWNLOAD_LOCATION> -r requirements-collections.yml
+#  e.g.     =  ansible-galaxy collection install -p . -r requirements-collections.yml
+
+# Role 1 - For setting up k8 cluster
+# https://galaxy.ansible.com/dealtalfa/kubernetes
+
+collections:
+  - name: dealtalfa.kubernetes

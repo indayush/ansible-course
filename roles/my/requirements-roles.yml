@@ -1,0 +1,29 @@
+#  Used to download the roles from Ansible Galaxy/Git Repos
+
+#  Syntax is   
+#              - For role from Ansible Galaxy - 
+#                             - name: <ROLE_NAME>
+#              - For role from any git repo -
+#                             - src: <LINK_OF_REPO>
+#                                 - name: <NAME_BY_WHICH_ROLE_WILL_BE _CREATED>
+
+
+
+# Command to download the roles - 
+#  (Syntax) =  ansible-galaxy install --roles-path <DOWNLOAD_LOCATION> -r requirements-roles.yml
+#  e.g.     =  ansible-galaxy install --roles-path . -r requirements-roles.yml
+
+# Role 1 - For installing Docker
+# https://galaxy.ansible.com/geerlingguy/docker
+- name: geerlingguy.docker
+
+# Role 2 - For installing Apache
+# https://github.com/companieshouse/ansible-role-apache
+- src: https://github.com/companieshouse/ansible-role-apache
+  
+  # Not apache as Apache already exists. 
+  # name: apache
+
+  # ch is for company house, the github owner
+  name: apache-ch-role
+  
